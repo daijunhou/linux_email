@@ -226,7 +226,7 @@ static int EmailStart(MdsRKIspElem *elem,int fd){
 }
 
 /*
- * mdsctl rkisp0 '{"todo":"semd_email"}'
+ * mdsctl send_email '{"todo":"semd_email"}'
  */
 static int EmailProcess(MDSElem* self, MDSElem* vendor, MdsMsg* msg)
 {

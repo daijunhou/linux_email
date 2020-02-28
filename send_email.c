@@ -20,8 +20,8 @@ int len;
 char *host_id="smtp.163.com";     
 char *from_id="18550200304@163.com";     
 char *to_id="1102214616@qq.com";     
-char *sub="testmail\r\n";     
-char wkstr[100]="it is for test\r\n";      
+char *sub="Monitormail\r\n";     
+char wkstr[100]="it is for test monitor\r\n";      
  
 /*=====Send a string to the socket=====*/      
 void send_socket(char *s)     
