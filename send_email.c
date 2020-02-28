@@ -3,7 +3,8 @@
 #include <netinet/in.h>      
 #include <netdb.h>      
 #include <stdio.h> 
-#include <string.h>     
+#include <string.h> 
+#include <unistd.h>       
 //using namespace std;      
 #define EHLO "EHLO 163.com\r\n" //***为邮箱用户名     
 #define DATA "data\r\n"      
@@ -20,7 +21,7 @@ char *host_id="smtp.163.com";
 char *from_id="18550200304@163.com";     
 char *to_id="1102214616@qq.com";     
 char *sub="testmail\r\n";     
-char wkstr[100]="hello how r u\r\n";      
+char wkstr[100]="it is for test\r\n";      
  
 /*=====Send a string to the socket=====*/      
 void send_socket(char *s)     
@@ -113,12 +114,16 @@ int main(int argc, char* argv[])
  
 	send_socket(DATA);// body to follow*/
 	read_socket(); 
-	//send_socket("from:***@126.com");
+	
 	send_socket("subject:");
 	send_socket(sub);
 	//read_socket(); // Recipient OK*/
+	send_socket("from:18550200304@163.com");
+	//read_socket(); // Recipient OK*/
 	send_socket("\r\n\r\n");
 	send_socket(wkstr);
+	//read_socket();
+	//send_socket("\r\n");
 	send_socket(".\r\n");
 	read_socket();
 	send_socket(QUIT); /* quit */
